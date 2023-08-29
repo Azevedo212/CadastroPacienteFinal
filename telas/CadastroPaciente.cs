@@ -27,6 +27,7 @@ namespace PacienteCadastroFinal.telas
 
             try
             {
+                
                 paciente.Nome = tx_nome.Text;
                 paciente.CPF = tx_cpf.Text;
                 paciente.RG = tx_rg.Text;
@@ -34,11 +35,18 @@ namespace PacienteCadastroFinal.telas
                 paciente.Data = tx_data.Text;
                 paciente.Sexo = tx_sexo.Text;
 
-
-                pacientes.Add(paciente);
-                dataGridView1.DataSource = null;
-                dataGridView1.Refresh();
-                dataGridView1.DataSource = pacientes;
+                if (Validar())
+                {
+                    pacientes.Add(paciente);
+                    dataGridView1.DataSource = null;
+                    dataGridView1.Refresh();
+                    dataGridView1.DataSource = pacientes;
+                }
+                else
+                {
+                    MessageBox.Show("Preencha todos os campos!");
+                }
+                
             }
             catch (FormatException ex)
             {
@@ -48,7 +56,7 @@ namespace PacienteCadastroFinal.telas
             {
                 MessageBox.Show("Preencha os dados corretamente!!!");
             }
-            
+
         }
 
         private void bt_excluir_Click(object sender, EventArgs e)
@@ -61,15 +69,15 @@ namespace PacienteCadastroFinal.telas
                 dataGridView1.Refresh();
                 dataGridView1.DataSource = pacientes;
             }
-            catch(Exception ex)
+            catch (FormatException ex)
             {
                 MessageBox.Show("Não há mais celular restantes para excluir!");
             }
-           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             tx_nome.Clear();
             tx_cpf.Clear();
             tx_rg.Clear();
@@ -77,10 +85,7 @@ namespace PacienteCadastroFinal.telas
             tx_data.Clear();
             tx_sexo.ResetText();
         }
-        private void SalvarDados()
-        {
 
-        }
         private void CadastroPaciente_Load(object sender, EventArgs e)
         {
 
@@ -95,7 +100,7 @@ namespace PacienteCadastroFinal.telas
         {
             try
             {
-                using (StreamWriter texto = new StreamWriter(@"C:\Users\Azevedo\Documents\teste.txt"))
+                using (StreamWriter texto = new StreamWriter(@"C:\Users\2022102020085\Documents\logica\3bimestre\TESTE.txt"))
                 {
                     for (int i = 0; i < dataGridView1.RowCount; i++)
                     {
@@ -110,10 +115,46 @@ namespace PacienteCadastroFinal.telas
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        public bool Validar()
+        {
+            bool validacao;
+
+            if (tx_nome.Text == "")
+            {
+                validacao = false;
+            }
+            else if (tx_cpf.Text == "")
+            {
+                validacao = false;
+            }
+            else if (tx_rg.Text == "")
+            {
+                validacao = false;
+            }
+            else if (tx_telefone.Text == "")
+            {
+                validacao = false;
+            }
+            else if (tx_data.Text == "")
+            {
+                validacao = false;
+            }
+            else if (tx_sexo.Text == "")
+            {
+                validacao = false;
+            }
+            else
+            {
+                validacao = true;
+            }
+            return validacao;
+            
         }
     }
 }

@@ -88,17 +88,17 @@
             // 
             // button1
             // 
-            button1.Location = new Point(34, 289);
+            button1.Location = new Point(48, 288);
             button1.Name = "button1";
             button1.Size = new Size(89, 38);
             button1.TabIndex = 59;
-            button1.Text = "NOVO";
+            button1.Text = "LIMPAR";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // bt_cadastrar
             // 
-            bt_cadastrar.Location = new Point(150, 289);
+            bt_cadastrar.Location = new Point(261, 289);
             bt_cadastrar.Name = "bt_cadastrar";
             bt_cadastrar.Size = new Size(89, 38);
             bt_cadastrar.TabIndex = 58;
@@ -108,7 +108,7 @@
             // 
             // bt_excluir
             // 
-            bt_excluir.Location = new Point(261, 289);
+            bt_excluir.Location = new Point(153, 288);
             bt_excluir.Name = "bt_excluir";
             bt_excluir.Size = new Size(89, 38);
             bt_excluir.TabIndex = 57;
@@ -197,12 +197,12 @@
             dataGridView1.Location = new Point(1, 353);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(517, 154);
+            dataGridView1.Size = new Size(517, 171);
             dataGridView1.TabIndex = 64;
             // 
             // button2
             // 
-            button2.Location = new Point(374, 289);
+            button2.Location = new Point(365, 290);
             button2.Name = "button2";
             button2.Size = new Size(89, 37);
             button2.TabIndex = 65;
